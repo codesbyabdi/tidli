@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tidli: Din Vækstpartner. Fordobl Din Omsætning, Halvér Din Admin.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #1e3a8a, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-bg {
+            background-color: #f8fafc;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.05), transparent 25%),
+                radial-gradient(circle at 90% 80%, rgba(96, 165, 250, 0.05), transparent 25%);
+        }
+        .cta-button {
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.4);
+        }
+        .pricing-card:hover, .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15);
+        }
+        [x-cloak] { display: none !important; }
+
+        .animated-gradient {
+            background: linear-gradient(-45deg, #1e3a8a, #3b82f6, #2563eb, #60a5fa);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .comparison-grid .bad {
+            background: rgba(239, 68, 68, 0.05);
+            border-color: rgba(239, 68, 68, 0.2);
+        }
+        .comparison-grid .good {
+            background: rgba(34, 197, 94, 0.05);
+            border-color: rgba(34, 197, 94, 0.2);
+        }
+        
+        /* Marquee styles */
+        .marquee {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+        .marquee-content {
+            display: flex;
+            animation: scrolling 30s linear infinite;
+        }
+        .marquee-item {
+            flex-shrink: 0;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #4b5563;
+            font-weight: 500;
+        }
+        @keyframes scrolling {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 antialiased">
+
+    <!-- Header -->
+    <header class="sticky top-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-200">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-900 flex items-center">
+                <span class="w-8 h-8 mr-2 rounded-lg animated-gradient"></span>
+                Tidli.dk
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#features" class="text-gray-600 hover:text-blue-600 font-medium">Features</a>
+                <a href="#pricing" class="text-gray-600 hover:text-blue-600 font-medium">Priser</a>
+                <a href="#wall-of-love" class="text-gray-600 hover:text-blue-600 font-medium">Kundecases</a>
+                <a href="#faq" class="text-gray-600 hover:text-blue-600 font-medium">FAQ</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                 <a href="#" class="text-gray-600 hover:text-blue-600 font-medium text-sm">Log ind</a>
+                 <a href="#pricing" class="cta-button bg-blue-600 text-white font-semibold px-5 py-2 rounded-lg text-sm">Start din gratis prøve</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero-bg py-24 md:py-40">
+            <div class="container mx-auto px-6 text-center">
+                 <span class="inline-flex items-center px-4 py-1 rounded-full text-sm font-semibold bg-blue-100 text-blue-800 ring-1 ring-inset ring-blue-200">
+                    <i data-lucide="users" class="w-4 h-4 mr-2"></i>
+                    Over 500 danske coaches har allerede skiftet
+                </span>
+                <h1 class="mt-6 text-5xl md:text-7xl font-black text-gray-900 leading-tight tracking-tighter">
+                    Fordobl din omsætning. <br/> Halvér din administration.
+                </h1>
+                <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                    Tidli er Danmarks førende alt-i-én platform for ambitiøse coaches. Få et professionelt bookingsite, automatiseret betaling og et dashboard, der giver dig overblik og motivation.
+                </p>
+                <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4 items-center">
+                    <a href="#pricing" class="cta-button w-full sm:w-auto bg-blue-600 text-white font-bold px-8 py-4 rounded-lg text-lg">Start 14-dages gratis prøve</a>
+                </div>
+                <div class="mt-8 text-sm text-gray-500">
+                    <p>Ingen binding &bull; Intet kreditkort påkrævet &bull; Klar på 10 minutter</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Marquee Section -->
+        <div class="py-6 bg-gray-50 border-y border-gray-200">
+            <div class="marquee">
+                <div class="marquee-content">
+                    <div class="marquee-item"><i data-lucide="check-circle" class="text-blue-500"></i>Pakkeforløb</div>
+                    <div class="marquee-item"><i data-lucide="check-circle" class="text-blue-500"></i>Abonnementer & Retainers</div>
+                    <div class="marquee-item"><i data-lucide="check-circle" class="text-blue-500"></i>Automatisk Betaling</div>
+                    <div class="marquee-item"><i data-lucide="check-circle" class="text-blue-500"></i>Eget Domæne</div>
+                    <div class="marquee-item"><i data-lucide="check-circle" class="text-blue-500"></i>Vækst-Dashboard</div>
+                    <div class="marquee-item"><i data-lucide="check-circle" class="text-blue-500"></i>Letvægts CRM</div>
+                    <div class="marquee-item"><i data-lucide="check-circle" class="text-blue-500"></i>Video-integration</div>
+                    <div class="marquee-item"><i data-lucide="check-circle" class="text-blue-500"></i>Zapier & API Adgang</div>
+                    <!-- Duplicate for seamless scroll -->
+                    <div class="marquee-item"><i data-lucide="check-circle" class="text-blue-500"></i>Pakkeforløb</div>
+                    <div class="marquee-item"><i data-lucide="check-circle" class="text-blue-500"></i>Abonnementer & Retainers</div>
+                    <div class="marquee-item"><i data-lucide="check-circle" class="text-blue-500"></i>Automatisk Betaling</div>
+                    <div class="marquee-item"><i data-lucide="check-circle" class="text-blue-500"></i>Eget Domæne</div>
+                    <div class="marquee-item"><i data-lucide="check-circle" class="text-blue-500"></i>Vækst-Dashboard</div>
+                    <div class="marquee-item"><i data-lucide="check-circle" class="text-blue-500"></i>Letvægts CRM</div>
+                    <div class="marquee-item"><i data-lucide="check-circle" class="text-blue-500"></i>Video-integration</div>
+                    <div class="marquee-item"><i data-lucide="check-circle" class="text-blue-500"></i>Zapier & API Adgang</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ambitious Social Proof Section -->
+        <section class="py-20 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900">Resultaterne taler for sig selv</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
+                        Vi er ikke bare en software. Vi er en vækstmotor. Her er hvad vores community har opnået.
+                    </p>
+                </div>
+                <div class="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-gray-50 text-center p-8 rounded-2xl border border-gray-100">
+                        <p class="text-5xl lg:text-6xl font-black gradient-text">15M+</p>
+                        <p class="mt-2 font-semibold text-gray-700">DKK Omsat af vores coaches</p>
+                    </div>
+                     <div class="bg-gray-50 text-center p-8 rounded-2xl border border-gray-100">
+                        <p class="text-5xl lg:text-6xl font-black gradient-text">250k+</p>
+                        <p class="mt-2 font-semibold text-gray-700">Bookinger Gennemført</p>
+                    </div>
+                     <div class="bg-gray-50 text-center p-8 rounded-2xl border border-gray-100">
+                        <p class="text-5xl lg:text-6xl font-black gradient-text">50k+</p>
+                        <p class="mt-2 font-semibold text-gray-700">Timer Sparet på Admin</p>
+                    </div>
+                     <div class="bg-gray-50 text-center p-8 rounded-2xl border border-gray-100">
+                        <p class="text-5xl lg:text-6xl font-black gradient-text">4.9/5</p>
+                        <p class="mt-2 font-semibold text-gray-700">Gns. Kundetilfredshed</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- "The Old Way vs. The Tidli Way" Section -->
+        <section class="py-20 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900">Stop med at lappe systemer sammen</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
+                        Din tid er for værdifuld til at spilde på administrativt kaos. Se forskellen på den gamle, besværlige måde og den nye, strømlinede Tidli-måde.
+                    </p>
+                </div>
+                <div class="mt-16 grid lg:grid-cols-2 gap-8 comparison-grid">
+                    <!-- The Old Way -->
+                    <div class="border-2 bad rounded-2xl p-8">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 flex items-center justify-center bg-red-100 rounded-lg"><i data-lucide="x-circle" class="w-8 h-8 text-red-600"></i></div>
+                            <h3 class="text-2xl font-bold text-red-800">Den Gamle Måde</h3>
+                        </div>
+                        <ul class="mt-6 space-y-4 text-gray-700">
+                            <li class="flex items-start"><i data-lucide="minus" class="w-5 h-5 text-red-500 mr-3 mt-1 flex-shrink-0"></i><span><b>Fragmenteret:</b> E-mail til booking, MobilePay til betaling, Google Kalender til planlægning, noter i et Word-dokument.</span></li>
+                            <li class="flex items-start"><i data-lucide="minus" class="w-5 h-5 text-red-500 mr-3 mt-1 flex-shrink-0"></i><span><b>Uprofessionelt:</b> Kunder skal hoppe mellem platforme, hvilket skaber usikkerhed og et dårligt førstehåndsindtryk.</span></li>
+                            <li class="flex items-start"><i data-lucide="minus" class="w-5 h-5 text-red-500 mr-3 mt-1 flex-shrink-0"></i><span><b>Tidskrævende:</b> Manuel opfølgning på betalinger, dobbelt-tjek af kalender, og konstante DMs på Instagram.</span></li>
+                            <li class="flex items-start"><i data-lucide="minus" class="w-5 h-5 text-red-500 mr-3 mt-1 flex-shrink-0"></i><span><b>Intet Overblik:</b> Umuligt at se din omsætning, booking-rate eller klienthistorik på ét sted.</span></li>
+                        </ul>
+                    </div>
+                    <!-- The Tidli Way -->
+                    <div class="border-2 good rounded-2xl p-8">
+                         <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 flex items-center justify-center bg-green-100 rounded-lg"><i data-lucide="check-check" class="w-8 h-8 text-green-600"></i></div>
+                            <h3 class="text-2xl font-bold text-green-800">The Tidli Way</h3>
+                        </div>
+                        <ul class="mt-6 space-y-4 text-gray-700">
+                            <li class="flex items-start"><i data-lucide="plus" class="w-5 h-5 text-green-500 mr-3 mt-1 flex-shrink-0"></i><span><b>Samlet:</b> Ét link til booking, betaling, og præsentation af dine ydelser. Alt er samlet.</span></li>
+                            <li class="flex items-start"><i data-lucide="plus" class="w-5 h-5 text-green-500 mr-3 mt-1 flex-shrink-0"></i><span><b>Professionelt:</b> En smuk, strømlinet oplevelse for dine klienter, der bygger tillid fra første sekund.</span></li>
+                            <li class="flex items-start"><i data-lucide="plus" class="w-5 h-5 text-green-500 mr-3 mt-1 flex-shrink-0"></i><span><b>Automatiseret:</b> Betaling sker ved booking. Kalenderen opdaterer sig selv. Påmindelser sendes automatisk.</span></li>
+                            <li class="flex items-start"><i data-lucide="plus" class="w-5 h-5 text-green-500 mr-3 mt-1 flex-shrink-0"></i><span><b>Fuld Kontrol:</b> Et realtids-dashboard viser dig præcis, hvordan din forretning klarer sig.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW: Detailed Features Section -->
+        <section id="features" class="py-20 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900">En Værktøjskasse Bygget til Vækst</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
+                        Dyk ned i de features, der gør Tidli til den mest kraftfulde platform for danske coaches.
+                    </p>
+                </div>
+                
+                <!-- Feature Pillar 1: Brand & Booking -->
+                <div class="mt-20 grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="lg:pr-12">
+                        <span class="inline-flex items-center px-4 py-1.5 rounded-full text-md font-semibold bg-blue-100 text-blue-800">
+                            <i data-lucide="sparkles" class="w-5 h-5 mr-2"></i>
+                            Brand & Booking
+                        </span>
+                        <h3 class="mt-4 text-3xl font-bold text-gray-900">Skab et uforglemmeligt førstehåndsindtryk</h3>
+                        <p class="mt-4 text-lg text-gray-600">Din online tilstedeværelse er dit vigtigste aktiv. Vi giver dig værktøjerne til at se fantastisk ud og konvertere besøgende til klienter.</p>
+                        <div class="mt-8 space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-blue-100"><i data-lucide="layout-template" class="w-6 h-6 text-blue-600"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900">Professionelle Temaer</h4>
+                                    <p class="text-gray-600">Vælg mellem minimalistiske, professionelt designede temaer, der får dit brand til at skinne.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-blue-100"><i data-lucide="link" class="w-6 h-6 text-blue-600"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900">Eget Domæne</h4>
+                                    <p class="text-gray-600">Forbind dit eget domæne (f.eks. www.dinside.dk) for et 100% brandet udtryk. (Pro/Scale)</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-blue-100"><i data-lucide="calendar-check" class="w-6 h-6 text-blue-600"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900">Intelligent Kalender</h4>
+                                    <p class="text-gray-600">To-vejs Google Kalender-sync, buffertid, og fuld kontrol over din tilgængelighed.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-2xl shadow-xl">
+                        <img src="https://placehold.co/600x700/E2E8F0/4A5568?text=Tidli+Brand+Site" alt="Tidli Brand Site" class="rounded-xl">
+                    </div>
+                </div>
+
+                <!-- Feature Pillar 2: Monetization -->
+                <div class="mt-24 grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="bg-gray-800 p-4 rounded-2xl shadow-xl lg:order-2">
+                        <img src="https://placehold.co/600x700/1F2937/9CA3AF?text=Monetization+Engine" alt="Tidli Monetization Engine" class="rounded-xl">
+                    </div>
+                    <div class="lg:pl-12 lg:order-1">
+                        <span class="inline-flex items-center px-4 py-1.5 rounded-full text-md font-semibold bg-green-100 text-green-800">
+                            <i data-lucide="dollar-sign" class="w-5 h-5 mr-2"></i>
+                            Monetization Engine
+                        </span>
+                        <h3 class="mt-4 text-3xl font-bold text-gray-900">Gør din viden til omsætning</h3>
+                        <p class="mt-4 text-lg text-gray-600">Vi har bygget de mest avancerede værktøjer, så du kan tjene penge på den måde, der passer dig bedst – og automatisere hele processen.</p>
+                        <div class="mt-8 space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-green-100"><i data-lucide="package" class="w-6 h-6 text-green-600"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900">Pakkeforløb & Klippekort</h4>
+                                    <p class="text-gray-600">Sælg flere sessioner på én gang og øg din gennemsnitlige kundeværdi. (Pro/Scale)</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-green-100"><i data-lucide="repeat" class="w-6 h-6 text-green-600"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900">Abonnementer & Retainers</h4>
+                                    <p class="text-gray-600">Skab forudsigelig, tilbagevendende omsætning med månedlige abonnementer. (Scale)</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-green-100"><i data-lucide="credit-card" class="w-6 h-6 text-green-600"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900">Automatisk Betaling</h4>
+                                    <p class="text-gray-600">Sikker og nem betaling med Stripe og MobilePay-instruktioner. Aldrig mere ubetalte fakturaer.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Feature Pillar 3: Automation & Growth -->
+                <div class="mt-24 grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="lg:pr-12">
+                         <span class="inline-flex items-center px-4 py-1.5 rounded-full text-md font-semibold bg-purple-100 text-purple-800">
+                            <i data-lucide="zap" class="w-5 h-5 mr-2"></i>
+                            Automation & Vækst
+                        </span>
+                        <h3 class="mt-4 text-3xl font-bold text-gray-900">Sæt din forretning på autopilot</h3>
+                        <p class="mt-4 text-lg text-gray-600">Frigør din tid og få indsigt, så du kan fokusere på det, der betyder mest: dine klienter og din egen udvikling.</p>
+                        <div class="mt-8 space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-purple-100"><i data-lucide="bar-chart-3" class="w-6 h-6 text-purple-600"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900">Vækst-Dashboard</h4>
+                                    <p class="text-gray-600">Få et realtids-overblik over omsætning, bookinger, og klientvækst. Sæt og spor dine mål.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-purple-100"><i data-lucide="notebook-tabs" class="w-6 h-6 text-purple-600"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900">Letvægts CRM</h4>
+                                    <p class="text-gray-600">Hold styr på dine klienter, tag noter til hver session, og se hele deres historik ét sted. (Scale)</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-purple-100"><i data-lucide="webhook" class="w-6 h-6 text-purple-600"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900">Zapier & API Adgang</h4>
+                                    <p class="text-gray-600">Forbind Tidli med tusindvis af andre apps for uendelige automationsmuligheder. (Scale)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-2xl shadow-xl">
+                        <img src="https://placehold.co/600x700/E2E8F0/4A5568?text=Automation+Workflows" alt="Tidli Automation" class="rounded-xl">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROI Calculator -->
+        <section class="py-20 md:py-24 bg-gray-50" x-data="{ hourlyRate: 750, adminHours: 5, savedAmount: 0, calculateROI() { this.savedAmount = this.hourlyRate * this.adminHours * 4 * 12 } }" x-init="calculateROI()">
+            <div class="container mx-auto px-6">
+                <div class="animated-gradient rounded-2xl p-8 md:p-12 lg:p-16 text-white grid lg:grid-cols-2 gap-12 items-center shadow-2xl">
+                    <div>
+                        <h2 class="text-4xl font-extrabold">Hvad er din tid værd?</h2>
+                        <p class="mt-4 text-lg text-blue-200">Brug vores regnemaskine til at se, hvor meget du potentielt kan tjene ved at frigøre tid fra administrativt arbejde med Tidli.</p>
+                        <div class="mt-8 space-y-6">
+                            <div>
+                                <label for="hourlyRate" class="font-semibold text-blue-100">Din timeløn (DKK)</label>
+                                <input type="range" id="hourlyRate" x-model="hourlyRate" @input="calculateROI()" min="250" max="2500" step="50" class="w-full h-2 bg-blue-900/50 rounded-lg appearance-none cursor-pointer mt-2">
+                                <div class="text-center text-2xl font-bold mt-2" x-text="`${hourlyRate} kr.`"></div>
+                            </div>
+                            <div>
+                                <label for="adminHours" class="font-semibold text-blue-100">Timer brugt på admin om ugen</label>
+                                <input type="range" id="adminHours" x-model="adminHours" @input="calculateROI()" min="1" max="20" step="1" class="w-full h-2 bg-blue-900/50 rounded-lg appearance-none cursor-pointer mt-2">
+                                <div class="text-center text-2xl font-bold mt-2" x-text="`${adminHours} timer`"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 text-center border border-white/20">
+                        <p class="font-semibold text-blue-200">Potentiel årlig merindtægt</p>
+                        <p class="my-4 text-5xl md:text-7xl font-black text-white" x-text="`${new Intl.NumberFormat('da-DK').format(savedAmount)} kr.`"></p>
+                        <p class="text-blue-200">...ved at konvertere spildtid til fakturerbar tid.</p>
+                        <a href="#pricing" class="mt-8 cta-button w-full bg-white text-blue-600 font-bold py-4 rounded-lg text-lg">Frigør din tid nu</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-20 md:py-24">
+             <div class="container mx-auto px-6 text-center" x-data="{ billing: 'monthly' }">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900">Find den plan, der vækster med dig</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
+                    Start gratis og opgradér, når du er klar. Simpelt, fair og transparent.
+                </p>
+                <div class="mt-10 flex justify-center items-center space-x-4">
+                    <span :class="billing === 'monthly' ? 'text-blue-600 font-semibold' : 'text-gray-500'">Månedligt</span>
+                    <div @click="billing = billing === 'monthly' ? 'yearly' : 'monthly'" class="relative w-14 h-8 flex items-center bg-gray-200 rounded-full cursor-pointer">
+                        <div class="w-6 h-6 bg-white rounded-full shadow-md transform duration-300 ease-in-out" :class="{ 'translate-x-7': billing === 'yearly' }"></div>
+                    </div>
+                    <span :class="billing === 'yearly' ? 'text-blue-600 font-semibold' : 'text-gray-500'">Årligt</span>
+                    <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Spar 2 måneder</span>
+                </div>
+
+                <div class="mt-12 grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-start">
+                    <!-- Starter Plan -->
+                    <div class="pricing-card border rounded-2xl p-8 text-left h-full flex flex-col">
+                        <h3 class="text-xl font-bold text-gray-900">Starter</h3>
+                        <p class="mt-2 text-gray-600">Perfekt til at komme i gang og få din første booking.</p>
+                        <p class="mt-6">
+                            <span class="text-5xl font-extrabold text-gray-900">0 kr.</span>
+                            <span class="text-base font-medium text-gray-600">/ for evigt</span>
+                        </p>
+                        <a href="#" class="mt-8 block w-full text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-3 rounded-lg text-lg transition-colors">Start gratis nu</a>
+                        <ul class="mt-8 space-y-3 text-sm flex-grow">
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-blue-600 mr-3 mt-1 flex-shrink-0"></i><span><b>1 aktiv ydelse</b> (session, pakke, etc.)</span></li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-blue-600 mr-3 mt-1 flex-shrink-0"></i><span>Manuel MobilePay-instruktion</span></li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-blue-600 mr-3 mt-1 flex-shrink-0"></i><span>Standard Brand Site med Tidli.dk branding</span></li>
+                        </ul>
+                    </div>
+                    <!-- Pro Plan -->
+                    <div class="pricing-card border-2 border-blue-600 rounded-2xl p-8 text-left shadow-2xl relative h-full flex flex-col">
+                        <div class="absolute top-0 -translate-y-1/2 bg-blue-600 text-white font-semibold px-4 py-1 rounded-full text-sm">Mest Populære</div>
+                        <h3 class="text-xl font-bold text-gray-900">Pro</h3>
+                        <p class="mt-2 text-gray-600">Til den professionelle coach, der vil automatisere og vækste.</p>
+                        <p class="mt-6">
+                            <span class="text-5xl font-extrabold text-gray-900" x-text="billing === 'monthly' ? '149 kr.' : '119 kr.'">149 kr.</span>
+                            <span class="text-base font-medium text-gray-600">/ måned</span>
+                        </p>
+                        <a href="#" class="mt-8 block w-full cta-button bg-blue-600 text-white font-bold py-3 rounded-lg text-lg">Start 14 dages gratis prøve</a>
+                        <ul class="mt-8 space-y-3 text-sm flex-grow">
+                            <li class="font-bold text-gray-800">Alt i Starter, plus:</li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-blue-600 mr-3 mt-1 flex-shrink-0"></i><span><b>Ubegrænset</b> antal ydelser</span></li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-blue-600 mr-3 mt-1 flex-shrink-0"></i><span>Sælg <b>pakkeforløb</b></span></li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-blue-600 mr-3 mt-1 flex-shrink-0"></i><span>Fuld <b>Stripe-integration</b></span></li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-blue-600 mr-3 mt-1 flex-shrink-0"></i><span><b>Google Kalender</b>-sync</span></li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-blue-600 mr-3 mt-1 flex-shrink-0"></i><span><b>Vækst-Dashboard</b></span></li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-blue-600 mr-3 mt-1 flex-shrink-0"></i><span>Fjern Tidli-branding & <b>eget domæne</b></span></li>
+                        </ul>
+                    </div>
+                    <!-- Scale Plan -->
+                    <div class="pricing-card border rounded-2xl p-8 text-left h-full flex flex-col">
+                        <h3 class="text-xl font-bold text-gray-900">Scale</h3>
+                        <p class="mt-2 text-gray-600">For etablerede coaches og små teams der kræver mere.</p>
+                        <p class="mt-6">
+                            <span class="text-5xl font-extrabold text-gray-900" x-text="billing === 'monthly' ? '299 kr.' : '239 kr.'">299 kr.</span>
+                            <span class="text-base font-medium text-gray-600">/ måned</span>
+                        </p>
+                        <a href="#" class="mt-8 block w-full text-center bg-gray-900 hover:bg-black text-white font-bold py-3 rounded-lg text-lg transition-colors">Start 14 dages gratis prøve</a>
+                        <ul class="mt-8 space-y-3 text-sm flex-grow">
+                            <li class="font-bold text-gray-800">Alt i Pro, plus:</li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-blue-600 mr-3 mt-1 flex-shrink-0"></i><span><b>Abonnementer</b> & retainers</span></li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-blue-600 mr-3 mt-1 flex-shrink-0"></i><span>Letvægts <b>CRM</b> (klientnoter)</span></li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-blue-600 mr-3 mt-1 flex-shrink-0"></i><span><b>Video-integration</b> (Zoom/Meet)</span></li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-blue-600 mr-3 mt-1 flex-shrink-0"></i><span><b>Zapier</b> & API-adgang</span></li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-blue-600 mr-3 mt-1 flex-shrink-0"></i><span>Prioriteret support</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-20 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-6 max-w-4xl">
+                 <div class="text-center">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">Ofte Stillede Spørgsmål</h2>
+                </div>
+                <div x-data="{ open: 1 }" class="mt-12 space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="border-b pb-4">
+                        <button @click="open = open === 1 ? null : 1" class="w-full flex justify-between items-center text-left text-lg font-semibold text-gray-800">
+                            <span>Hvordan adskiller Tidli sig fra Calendly eller Terapeutbooking?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 transition-transform" :class="{'rotate-180': open === 1}"></i>
+                        </button>
+                        <div x-show="open === 1" x-collapse x-cloak class="mt-4 text-gray-600">
+                            Calendly er et rent planlægningsværktøj. Terapeutbooking er bygget til en anden branche med journalføring som kerne. Tidli er den eneste platform bygget specifikt til <b>vækst-orienterede coaches i Danmark</b>. Vi kombinerer et professionelt brand site, en avanceret salgsmotor (pakker, abonnementer) og et motiverende dashboard. Vi er ikke bare en kalender; vi er din forretningspartner.
+                        </div>
+                    </div>
+                    <!-- FAQ Item 2 -->
+                    <div class="border-b pb-4">
+                        <button @click="open = open === 2 ? null : 2" class="w-full flex justify-between items-center text-left text-lg font-semibold text-gray-800">
+                            <span>Hvad er transaktionsgebyrerne?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 transition-transform" :class="{'rotate-180': open === 2}"></i>
+                        </button>
+                        <div x-show="open === 2" x-collapse x-cloak class="mt-4 text-gray-600">
+                           Tidli tager <b>0% i transaktionsgebyr</b> på alle planer. Du betaler kun dit faste abonnement. Vores betalingspartner, Stripe, opkræver deres egne standardgebyrer for kortbetalinger. Der er ingen gebyrer for manuel MobilePay.
+                        </div>
+                    </div>
+                    <!-- FAQ Item 3 -->
+                     <div class="border-b pb-4">
+                        <button @click="open = open === 3 ? null : 3" class="w-full flex justify-between items-center text-left text-lg font-semibold text-gray-800">
+                            <span>Kan jeg bruge mit eget domæne?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 transition-transform" :class="{'rotate-180': open === 3}"></i>
+                        </button>
+                        <div x-show="open === 3" x-collapse x-cloak class="mt-4 text-gray-600">
+                           Ja! På vores Pro og Scale planer kan du nemt forbinde dit eget domæne (f.eks. www.dinside.dk), så din Tidli-side fremstår fuldt integreret med dit brand. Vi har simple guides, der hjælper dig med opsætningen.
+                        </div>
+                    </div>
+                    <!-- FAQ Item 4 -->
+                    <div class="border-b pb-4">
+                        <button @click="open = open === 4 ? null : 4" class="w-full flex justify-between items-center text-left text-lg font-semibold text-gray-800">
+                            <span>Er der en bindingsperiode?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 transition-transform" :class="{'rotate-180': open === 4}"></i>
+                        </button>
+                        <div x-show="open === 4" x-collapse x-cloak class="mt-4 text-gray-600">
+                           Nej, der er ingen binding på Tidli. Du kan opsige dit abonnement når som helst, uden spørgsmål. Hvis du vælger en årlig plan, betaler du forud for et år, men du kan stadig opsige til udgangen af perioden.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="container mx-auto px-6 py-16">
+            <div class="grid lg:grid-cols-12 gap-8">
+                <div class="lg:col-span-4">
+                    <a href="#" class="text-2xl font-bold text-white flex items-center">
+                        <span class="w-8 h-8 mr-2 rounded-lg animated-gradient"></span>
+                        Tidli.dk
+                    </a>
+                    <p class="mt-4 text-gray-400">Platformen der vækster din coachingforretning.</p>
+                    <div class="mt-6 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-8">
+                    <div>
+                        <h4 class="font-semibold tracking-wider uppercase">Produkt</h4>
+                        <ul class="mt-4 space-y-3">
+                            <li><a href="#features" class="text-gray-400 hover:text-white">Features</a></li>
+                            <li><a href="#pricing" class="text-gray-400 hover:text-white">Priser</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white">Changelog</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold tracking-wider uppercase">Sammenlign</h4>
+                        <ul class="mt-4 space-y-3">
+                            <li><a href="#" class="text-gray-400 hover:text-white">vs. Calendly</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white">vs. Supersaas</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white">vs. Terapeutbooking</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold tracking-wider uppercase">Ressourcer</h4>
+                        <ul class="mt-4 space-y-3">
+                            <li><a href="#" class="text-gray-400 hover:text-white">Blog</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white">Kundecases</a></li>
+                             <li><a href="#" class="text-gray-400 hover:text-white">Kontakt support</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold tracking-wider uppercase">Legal</h4>
+                        <ul class="mt-4 space-y-3">
+                            <li><a href="#" class="text-gray-400 hover:text-white">Betingelser</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white">Privatlivspolitik</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-16 border-t border-gray-800 pt-8 text-center text-gray-500">
+                <p>&copy; 2025 Tidli.dk ApS - CVR: 12345678 - København, Danmark.</p>
+            </div>
+        </div>
+    </footer>
+
+<script>
+    lucide.createIcons();
+</script>
+</body>
+</html>
